@@ -14,26 +14,32 @@
                 <li><a href="closet.php" title="View the clothes within the closet">View your clothes</a></li>
             </ul>
         </nav>
+        <!-- lets user input info then move to saveTheCloset.php -->
+        <form method="post" action="saveTheCloset.php">
         <fieldset>
-            <label for="clothesID">Clothes Type </label>
-            <select name="clothesID" id="clothesID" required>
+            <label for="closetType">Clothes Type </label>
+            <select name="closetType" id="closetType" required>
                 <?php
-                        // connect
                 $db = new PDO('mysql:host=172.31.22.43;dbname=Adam882094', 'Adam882094', '842ojmV_vQ');
-
-                // set up query to fetch categories
                 $sql = "SELECT * FROM clothes ORDER BY closetType";
-
-                // set up & execute command
                 $cmd = $db->prepare($sql);
                 $cmd->execute();
-                $categories = $cmd->fetchAll();
-
-                // loop through the results adding each category to the dropdown list
+                $clothes = $cmd->fetchAll();
                 foreach ($clothes as $c) {
                     echo '<option value="' . $c['clothesID'] . '">' . $c['closetType'] . '</option>';
                 }
                 ?>
+            </select>
         </fieldset>
+        <fieldset>
+            <label for="name">Clothing Name </label>
+            <input name="name" id="name" required />
+        </fieldset>
+        <fieldset>
+            <label for="colour">Colours </label>
+            <input name="colour" id="colour" required/>
+        </fieldset>
+        <button>Enter</button>
+        </form>
     </body>
 </html>
