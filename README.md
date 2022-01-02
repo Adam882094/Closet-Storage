@@ -18,4 +18,5 @@ The user can add and view the contents of the database.
 8. Validates user inputted value 
 9. if validation failed user is told what failed and is prompted to try again
 10. if passed user is told the clothing was added to the closet and to view the item
-11. In "closet.php" the database is outputted to the user so the user may see the clothes stored in the closet
+11. User selects "View your clothes"
+12. In "closet.php" the database is outputted to the user so the user may see the clothes stored in the closet
